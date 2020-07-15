@@ -1,0 +1,15 @@
+nav {
+  padding: 20px !important;
+  justify-content: space-around !important;
+
+}
+
+a {
+  text-decoration: none !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+a:hover {
+  border-bottom: 2px solid #ff7315;
+}

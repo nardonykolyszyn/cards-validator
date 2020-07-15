@@ -1,0 +1,12 @@
+.ValidatorContainer {
+  margin: 100px 500px;
+}
+
+.row {
+  margin-top: 20px !important;
+}
+
+.bigCard {
+  width: 100px;
+  max-width: 100%;
+}
