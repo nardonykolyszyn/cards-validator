@@ -5,7 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import {
-  getCardTypeByValue
+  getCardTypeByValue,
+  matchCardLengthWith
 } from '../../utils/cardRules';
 import images from '../../utils/cardImages';
 
@@ -13,8 +14,9 @@ import './index.css';
 
 
 function Validator () {
-  const [card, setCard] = useState('0');
+  const [card, setCard] = useState('');
   const [franchise, setFranchise] = useState('placeholder');
+  const [validated, setValidated] = useState(false);
 
   const handleChange = (event) => {
     setCard(event.target.value);
@@ -25,7 +27,14 @@ function Validator () {
   }
 
   const handleValidate = () => {
-    setFranchise(getCardTypeByValue(card)?.type);
+    let cardNetwork = getCardTypeByValue(card);
+
+    setFranchise(cardNetwork?.type);
+
+
+    if (cardNetwork) {
+      setValidated(matchCardLengthWith(card, cardNetwork));
+    }
   }
   
   
@@ -39,7 +48,7 @@ function Validator () {
             
           <Row>
             <Col>
-              <Form.Control placeholder="0000 0000 0000 0000" onChange={handleChange.bind(this)} />
+              <Form.Control placeholder="0000 0000 0000 0000" onChange={handleChange.bind(this)} className={validated ? 'isValid' : 'isInvalid'} />
             </Col>
           </Row>
 

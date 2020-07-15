@@ -26,5 +26,5 @@ export const getCardTypeByValue = value => {
 }
 
 export const matchCardLengthWith = (value, network) => {
-  return network.maxCardNumberLength.some(length => length >= value.length)
+  return network.maxCardNumberLength.some(length => length === value.length)
 }

@@ -18,3 +18,11 @@
   width: 30px;
   max-width: 100%;
 }
+
+.isInvalid {
+  border: 2px solid red !important;
+}
+
+.isValid {
+  border: 2px solid green !important;
+}
