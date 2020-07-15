@@ -1,36 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import {
+  getCardTypeByValue
+} from '../../utils/cardRules';
+import images from '../../utils/cardImages';
 
 import './index.css';
 
 
-const Validator = () => (
-  <div className="ValidatorContainer">
-    <Container>
-    <Form>
-      <Row style={{justifyContent: 'center' }}>
-        <img src={require('../../images/pay.png')} className="bigCard" />
-      </Row>
-      
-      <Row>
-        <Col>
-          <Form.Control placeholder="0000 0000 0000 0000" />
-        </Col>
-      </Row>
-      
-      <Row>
-        <Col>
-          <Button variant="success" block>Validate</Button>{' '}
-        </Col>
-      </Row>
-    </Form>
-    </Container>
-  </div>
-);
+function Validator () {
+  const [card, setCard] = useState('0');
+  const [franchise, setFranchise] = useState('placeholder');
+
+  const handleChange = (event) => {
+    setCard(event.target.value);
+
+    if (!event.target.value.length) {
+      setFranchise('placeholder');
+    }
+  }
+
+  const handleValidate = () => {
+    setFranchise(getCardTypeByValue(card)?.type);
+  }
+  
+  
+  return(
+    <div className="ValidatorContainer">
+      <Container>
+        <Form>
+          <Row style={{justifyContent: 'center' }}>
+            <img src={require('../../images/pay.png')} className="bigCard" />
+          </Row>
+            
+          <Row>
+            <Col>
+              <Form.Control placeholder="0000 0000 0000 0000" onChange={handleChange.bind(this)} />
+            </Col>
+          </Row>
+
+          <img src={images[franchise]} className="inputCard" />
+          
+          <Row>
+            <Col>
+              <Button variant="success" block onClick={() => handleValidate()}>Validate</Button>{' '}
+            </Col>
+          </Row>
+        </Form>
+      </Container>
+    </div>
+  );
+}
 
 export default {
   routeProps: {

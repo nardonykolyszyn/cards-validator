@@ -10,3 +10,11 @@
   width: 100px;
   max-width: 100%;
 }
+
+.inputCard {
+  position: relative;
+  bottom: 32px;
+  left: 90%;
+  width: 30px;
+  max-width: 100%;
+}
