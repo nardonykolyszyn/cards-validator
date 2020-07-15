@@ -2,7 +2,9 @@
 > This document strongly follows Markdown standards and conventions from: https://www.markdownguide.org
 
 ## Summary
-> This project makes reference to a hypothetical situation in real-life, however it does not represent any utility for production projects. 
+> This project makes reference to a hypothetical situation in real-life, however it does not represent any utility for production projects.
+
+[Demo on YouTube](https://www.youtube.com/watch?v=K27_lD6KCmE)
 
 ## Installation
 
