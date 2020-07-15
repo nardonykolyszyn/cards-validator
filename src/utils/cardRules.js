@@ -22,5 +22,5 @@ export const CARD_TYPES = [
 ]
 
 export const getCardTypeByValue = value => {
-  return CARD_TYPES.find(cardType => cardType.startPattern.test(value))
+  return CARD_TYPES.find(cardType => cardType.startPattern.test(value))?.type
 }

@@ -25,7 +25,7 @@ function Validator () {
   }
 
   const handleValidate = () => {
-    setFranchise(getCardTypeByValue(card)?.type);
+    setFranchise(getCardTypeByValue(card));
   }
   
   
