@@ -1,6 +1,7 @@
 // Import cards validator core
 import {
-  getCardTypeByValue
+  getCardTypeByValue,
+  matchCardLengthWith
 } from '../../utils/cardRules';
 
 const TEST_CASES = [
@@ -20,7 +21,11 @@ const TEST_CASES = [
 describe('Detect card network', () => {
   it('Correctly identifies card networks', () => {
     TEST_CASES.map(card => {
-      expect(getCardTypeByValue(card[0])).toEqual(card[1]);
+      const cardNetwork = getCardTypeByValue(card[0]);      
+      // It matches card networks.
+      expect(cardNetwork?.type).toEqual(card[1]);
+      // It ensures card length is not higher than edges.
+      expect(matchCardLengthWith(card[0], cardNetwork)).toEqual(true);
     })
   });
 });
